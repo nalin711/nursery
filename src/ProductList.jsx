@@ -1,27 +1,17 @@
-/*
-The product listing and shopping cart pages should have a header. 
-The header should have a shopping cart icon with a number that updates dynamically, 
-displaying the total number of items in the cart. 
-The header should also contain navigation to either of the other pages, depending on which page you are on.
-
-The product listing page should have at least six houseplants for sale, organized into three or more categories. Each plant should have the following details about it:
-
-A thumbnail image
-Plant name
-Price
-An Add to Cart button
-*/
-import React, {useState, useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState,useEffect } from 'react';
+import './ProductList.css'
 import CartItem from './CartItem';
-import './ProductListing.css';
-import { addItem } from './CartSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
-const ProductListing = () => {
+import { addItem }  from './CartSlice';
+
+function ProductList() {
     const cart = useSelector(state => state.cart.items);
-    const [showCart, setShowCart] = useState(false);
+
+    const [showCart, setShowCart] = useState(false); 
+    const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
 
     const plantsArray = [
         {
@@ -230,7 +220,7 @@ const ProductListing = () => {
             ]
         }
     ];
-    
+
     const styleObj={
         backgroundColor: '#4CAF50',
         color: '#fff!important',
@@ -333,4 +323,4 @@ const ProductListing = () => {
     );
 }
 
-export default ProductListing;
+export default ProductList;

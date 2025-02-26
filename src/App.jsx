@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import ProductListing from './Components/ProductListing';
+import ProductList from './ProductList';
 import './App.css';
-import AboutUs from './Components/AboutUs';
+import AboutUs from './AboutUs';
 
 function App() {
   
@@ -20,7 +20,7 @@ function App() {
          <div className="landing_content">
          <h1>Paradise Nursery</h1>
           <div className="divider"></div>
-          <p>Where Green Meets Serenity</p>
+          <p>Where Green Meets Bliss</p>
          
           <button className="get-started-button" onClick={handleGetStartedClick}>
             Get Started
@@ -33,10 +33,13 @@ function App() {
 
       </div>
       <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductListing />
+        <ProductList />
       </div>
     </div>
   );
 }
 
 export default App;
+
+
+
