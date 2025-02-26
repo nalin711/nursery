@@ -9,6 +9,8 @@ A Get Started button linking to the product page
 
 import React, {useState} from 'react';
 import './LandingPage.css';
+import AboutUs from './AboutUs';
+
 import ProductListing from './ProductListing';
 
 const LandingPage = () => {
@@ -19,22 +21,27 @@ const LandingPage = () => {
     
   return (
       <div className="landing-page">
-        
-        {(showProduct) ? <ProductListing/> : 
-          <div className="content">
+         
+        <div className="content">
           <h1 className="title">Paradise Nursery</h1>
-          <p className="description">Welcome to Paradise Nursery!
+          <p className="description">Where Green Meets Serenity
             <br/>
-            <br/>
-            We are a company that specializes in providing the best plants for your home.</p>
-          <button className="getstarted_button" onClick={() => handleGetStarted() }>Get Started</button>
+            <br/>{/*Paragraph about company*/}
+            We are a company that specializes in providing the best plants for your home.
+            </p>
+          <button className="getstarted_button" onClick={handleGetStarted}>Get Started</button>
+          <div className="aboutus_container">
+          <AboutUs/>
+          </div>
         </div>
-        }
-        
-      </div>
+        {showProduct && (
+        <div className="product-listing">
+          <ProductListing />
+        </div>
+      )}
+        </div>
     );
 }
-
 
 export default LandingPage;
 
